@@ -1,0 +1,3 @@
+[submodule "dango-swap-sdk"]
+	path = dango-swap-sdk
+	url = git@github.com:dangoswap/dango-swap-sdk.git
