@@ -1,6 +1,9 @@
 import { ChainId } from '@pancakeswap/sdk'
 import BigNumber from 'bignumber.js/bignumber'
 import { BIG_TEN } from 'utils/bigNumber'
+import { CHAIN_ID } from 'config/constants/networks'
+import MAINNET_DEFAULT_TOKEN_LIST from './constants/tokenLists/pancake-mainnet.tokenlist.json'
+import TESTNET_DEFAULT_TOKEN_LIST from './constants/tokenLists/pancake-testnet.tokenlist.json'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,

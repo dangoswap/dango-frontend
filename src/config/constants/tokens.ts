@@ -16,12 +16,12 @@ export const mainnetTokens = defineTokens({
     MAINNET,
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     18,
-    'WBNB',
-    'Wrapped BNB',
+    'WKUB',
+    'Wrapped KUB',
     'https://www.binance.com/',
   ),
-  // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
-  bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
+  // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'KUB' can be used
+  bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'KUB', 'KUB', 'https://www.binance.com/'),
   cake: new Token(
     MAINNET,
     '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
@@ -2030,10 +2030,10 @@ export const mainnetTokens = defineTokens({
 export const testnetTokens = defineTokens({
   wbnb: new Token(
     TESTNET,
-    '0x1de8A5c87d421f53eE4ae398cc766e62E88e9518',
+    '0x4094Fca1523757eAE0BAEF002A27791F77EdEC0f',
     18,
-    'WBNB',
-    'Wrapped BNB',
+    'WKUB',
+    'Wrapped KUB',
     'https://www.binance.com/',
   ),
   cake: new Token(
