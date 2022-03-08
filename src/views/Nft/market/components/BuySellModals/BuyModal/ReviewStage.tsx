@@ -3,7 +3,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import { Flex, Text, Button, ButtonMenu, ButtonMenuItem, Message, Link } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { NftToken } from 'state/nftMarket/types'
-import { getBscScanLinkForNft } from 'utils'
+import { getBkcScanLinkForNft } from 'utils'
 import { FetchStatus } from 'config/constants/types'
 import { Divider, RoundedImage } from '../shared/styles'
 import { BorderedBox, BnbAmountCell } from './styles'
@@ -53,7 +53,7 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
                 pt="2px"
                 external
                 variant="text"
-                href={getBscScanLinkForNft(nftToBuy.collectionAddress, nftToBuy.tokenId)}
+                href={getBkcScanLinkForNft(nftToBuy.collectionAddress, nftToBuy.tokenId)}
               >
                 {nftToBuy.tokenId}
               </Button>

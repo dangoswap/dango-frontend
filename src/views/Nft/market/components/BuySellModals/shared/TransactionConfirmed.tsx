@@ -1,6 +1,6 @@
 import { Flex, Text, Button, ArrowUpIcon, LinkExternal } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
-import { getBscScanLink } from 'utils'
+import { getBkcScanLink } from 'utils'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { Divider } from './styles'
 
@@ -17,7 +17,7 @@ const TransactionConfirmed: React.FC<TransactionConfirmedProps> = ({ txHash, onD
       <Flex p="16px" flexDirection="column" alignItems="center" justifyContent="space-between" height="150px">
         <ArrowUpIcon width="64px" height="64px" color="primary" />
         <Text bold>{t('Transaction Confirmed')}</Text>
-        <LinkExternal href={getBscScanLink(txHash, 'transaction', chainId)}>{t('View on BscScan')}</LinkExternal>
+        <LinkExternal href={getBkcScanLink(txHash, 'transaction', chainId)}>{t('View on BkcScan')}</LinkExternal>
       </Flex>
       <Divider />
       <Flex px="16px" pb="16px" justifyContent="center">

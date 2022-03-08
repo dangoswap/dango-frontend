@@ -2,7 +2,7 @@ import { Flex, Grid, Text, Button, Link, LinkExternal, BinanceIcon } from '@panc
 import { useTranslation } from 'contexts/Localization'
 import { nftsBaseUrl, pancakeBunniesAddress } from 'views/Nft/market/constants'
 import { NftToken } from 'state/nftMarket/types'
-import { getBscScanLinkForNft } from 'utils'
+import { getBkcScanLinkForNft } from 'utils'
 import { Divider, HorizontalDivider, RoundedImage } from '../shared/styles'
 
 interface EditStageProps {
@@ -76,9 +76,9 @@ const EditStage: React.FC<EditStageProps> = ({
           <LinkExternal
             p="0px"
             height="16px"
-            href={getBscScanLinkForNft(nftToSell.collectionAddress, nftToSell.tokenId)}
+            href={getBkcScanLinkForNft(nftToSell.collectionAddress, nftToSell.tokenId)}
           >
-            BscScan
+            BkcScan
           </LinkExternal>
         </Flex>
       </Flex>

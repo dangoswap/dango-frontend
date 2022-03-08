@@ -23,7 +23,7 @@ export function isAddress(value: any): string | false {
   }
 }
 
-export function getBscScanLink(
+export function getBkcScanLink(
   data: string | number,
   type: 'transaction' | 'token' | 'address' | 'block' | 'countdown',
   chainIdOverride?: number,
@@ -48,7 +48,7 @@ export function getBscScanLink(
   }
 }
 
-export function getBscScanLinkForNft(collectionAddress: string, tokenId: string): string {
+export function getBkcScanLinkForNft(collectionAddress: string, tokenId: string): string {
   const chainId = CHAIN_ID
   return `${BASE_BSC_SCAN_URLS[chainId]}/token/${collectionAddress}?a=${tokenId}`
 }
