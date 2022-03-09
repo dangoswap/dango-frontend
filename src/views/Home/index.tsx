@@ -82,7 +82,7 @@ const Home: React.FC = () => {
       >
         <MetricsSection />
       </PageSection> */}
-      <PageSection
+      {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
         background={theme.colors.background}
         index={2}
@@ -94,7 +94,7 @@ const Home: React.FC = () => {
           </InnerWedgeWrapper>
         </OuterWedgeWrapper>
         <SalesSection {...swapSectionData(t)} />
-      </PageSection>
+      </PageSection> */}
       {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
         background={theme.colors.gradients.cardHeader}

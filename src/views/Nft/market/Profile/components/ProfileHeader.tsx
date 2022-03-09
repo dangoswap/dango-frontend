@@ -1,5 +1,5 @@
 import { NextLinkFromReactRouter as ReactRouterLink } from 'components/NextLink'
-import { BkcScanIcon, Flex, IconButton, Link, Button, useModal } from '@pancakeswap/uikit'
+import { BscScanIcon, Flex, IconButton, Link, Button, useModal } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { getBkcScanLink } from 'utils'
 import { formatNumber } from 'utils/formatBalance'
@@ -92,7 +92,7 @@ const ProfileHeader: React.FC<HeaderProps> = ({
               // @ts-ignore
               alt={t('View BkcScan for user address')}
             >
-              <BkcScanIcon width="20px" color="primary" />
+              <BscScanIcon width="20px" color="primary" />
             </IconButton>
           )}
         </Flex>
