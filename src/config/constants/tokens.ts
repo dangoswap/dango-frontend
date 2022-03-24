@@ -2025,6 +2025,23 @@ export const mainnetTokens = defineTokens({
     'Duet Governance Token',
     'https://duet.finance',
   ),
+  tokenIn: new Token(
+    MAINNET,
+    '0xed1ABbAb02049c4B14336dbf0c3080D626DdaAFB',
+    18,
+    'TI',
+    'TokenIn Token',
+    'https://pancakeswap.finance/',
+  ),
+  tokenOut: new Token(
+    MAINNET,
+    '0xCA1dD1342aA4a8B4542De0e06f03032222032619',
+    18,
+    'TO',
+    'TokenOut Token',
+    'https://pancakeswap.finance/',
+  )
+  
 } as const)
 
 export const testnetTokens = defineTokens({
@@ -2052,6 +2069,22 @@ export const testnetTokens = defineTokens({
     'SyrupBar Token',
     'https://pancakeswap.finance/',
   ),
+  tokenIn: new Token(
+    TESTNET,
+    '0xed1ABbAb02049c4B14336dbf0c3080D626DdaAFB',
+    18,
+    'TI',
+    'TokenIn Token',
+    'https://pancakeswap.finance/',
+  ),
+  tokenOut: new Token(
+    TESTNET,
+    '0xCA1dD1342aA4a8B4542De0e06f03032222032619',
+    18,
+    'TO',
+    'TokenOut Token',
+    'https://pancakeswap.finance/',
+  )
 } as const)
 
 const tokens = () => {

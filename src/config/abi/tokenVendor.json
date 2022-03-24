@@ -1,0 +1,112 @@
+[
+  {
+    "type": "constructor",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      { "type": "address", "name": "_weth", "internalType": "contract ERC20" },
+      { "type": "address", "name": "_tokenIn", "internalType": "contract ERC20" },
+      { "type": "address", "name": "_tokenOut", "internalType": "contract ERC20" },
+      { "type": "address", "name": "_tokenInRecipient", "internalType": "address" },
+      { "type": "uint256", "name": "_tokensOutPerInNumerator", "internalType": "uint256" },
+      { "type": "uint256", "name": "_tokensOutPerInDenominator", "internalType": "uint256" }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "OwnershipTransferred",
+    "inputs": [
+      { "type": "address", "name": "previousOwner", "internalType": "address", "indexed": true },
+      { "type": "address", "name": "newOwner", "internalType": "address", "indexed": true }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SwapTokens",
+    "inputs": [
+      { "type": "address", "name": "_from", "internalType": "address", "indexed": true },
+      { "type": "address", "name": "_to", "internalType": "address", "indexed": true },
+      { "type": "uint256", "name": "tokenInAmount", "internalType": "uint256", "indexed": false },
+      { "type": "uint256", "name": "tokenOutAmount", "internalType": "uint256", "indexed": false }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+    "name": "owner",
+    "inputs": []
+  },
+  { "type": "function", "stateMutability": "nonpayable", "outputs": [], "name": "renounceOwnership", "inputs": [] },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "setPrice",
+    "inputs": [
+      { "type": "uint256", "name": "_tokensOutPerInNumerator", "internalType": "uint256" },
+      { "type": "uint256", "name": "_tokensOutPerInDenominator", "internalType": "uint256" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [{ "type": "uint256", "name": "tokenOutAmount", "internalType": "uint256" }],
+    "name": "swapTokens",
+    "inputs": [
+      { "type": "uint256", "name": "tokenInAmount", "internalType": "uint256" },
+      { "type": "address", "name": "from", "internalType": "address" },
+      { "type": "address", "name": "to", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "contract ERC20" }],
+    "name": "tokenIn",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+    "name": "tokenInRecipient",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "contract ERC20" }],
+    "name": "tokenOut",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "tokensOutPerInDenominator",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "tokensOutPerInNumerator",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "transferOwnership",
+    "inputs": [{ "type": "address", "name": "newOwner", "internalType": "address" }]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "contract ERC20" }],
+    "name": "weth",
+    "inputs": []
+  }
+]
