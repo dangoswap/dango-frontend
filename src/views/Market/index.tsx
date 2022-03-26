@@ -13,7 +13,7 @@ import {
   Text,
   ArrowForwardIcon,
   useModal,
-  Button
+  Button,
 } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
@@ -23,6 +23,7 @@ import marketItems from 'config/constants/market/index'
 import { AutoRow } from 'components/Layout/Row'
 import { marketBaseUrl } from './constants'
 import SellButton from './components/SellButton'
+import ItemTable from './components/Tables/ItemTable'
 
 const Market = () => {
   const { t } = useTranslation()
@@ -36,44 +37,7 @@ const Market = () => {
         </Heading>
       </PageHeader>
       <Page>
-        <Card>
-          <Table>
-            <thead>
-              <tr>
-                <Th textAlign="left">{t('ITEM')}</Th>
-                <Th textAlign="left">
-                      {t('Cost (LUMI)')}
-                    </Th>
-                    <Th textAlign="left"/>
-                     
-              </tr>
-            </thead>
-            <tbody>
-            {marketItems.map((item) => {
-                return (
-                  <tr key={item.name}>
-                    <Td>
-                       <Flex alignItems="center">
-                       <ProfileAvatar src={item.imageUrl} width={48} height={48} mr="16px" />
-                          {item.name}
-                        </Flex>
-                    </Td>
-                    <Td>
-                      <Flex alignItems="center">
-                        {item.price}
-                      </Flex>
-                    </Td>
-                    <Td>
-                    <SellButton item={item}>
-                        {t('Sell')}
-                    </SellButton>
-                    </Td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </Table>
-        </Card>
+        <ItemTable itemDatas={marketItems} />
       </Page>
     </>
   )

@@ -59,6 +59,7 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
     label: t('Market'),
     href: '/market',
     icon: NftIcon,
+    showItemsOnMobile: false,
     items: [],
   },
   // {
