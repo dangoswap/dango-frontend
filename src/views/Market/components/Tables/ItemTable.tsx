@@ -9,6 +9,7 @@ import {
   ArrowBackIcon,
   ArrowForwardIcon,
   ProfileAvatar,
+  LinkExternal,
 } from '@pancakeswap/uikit'
 import { MarketItem } from 'config/constants/market/types'
 import { NextLinkFromReactRouter } from 'components/NextLink'
@@ -16,6 +17,8 @@ import { CurrencyLogo } from 'views/Info/components/CurrencyLogo'
 import { formatAmount } from 'utils/formatInfoNumbers'
 import Percent from 'views/Info/components/Percent'
 import { useTranslation } from 'contexts/Localization'
+import { getBkcScanLink } from 'utils'
+import { getAddress } from 'utils/addressHelpers'
 import { ClickableColumnHeader, TableWrapper, PageButtons, Arrow, Break } from './shared'
 import SellButton from '../SellButton'
 
@@ -37,11 +40,10 @@ const ResponsiveGrid = styled.div`
   grid-template-columns: repeat(2, 1fr) 65px;
 `
 
-const LinkWrapper = styled(NextLinkFromReactRouter)`
-  text-decoration: none;
-  :hover {
-    cursor: pointer;
-    opacity: 0.7;
+const ResponsiveLogo = styled(ProfileAvatar)`
+  @media screen and (max-width: 670px) {
+    width: 26px;
+    height: 26px;
   }
 `
 
@@ -64,12 +66,20 @@ const TableLoader: React.FC = () => {
 
 const DataRow: React.FC<{ item: MarketItem }> = ({ item }) => {
   const { isXs, isSm } = useMatchBreakpoints()
+  const bkc = getBkcScanLink(getAddress(item.contractAddress), 'address')
   return (
     <ResponsiveGrid>
-      <Flex alignItems="center">
-        <ProfileAvatar src={item.imageUrl} width={48} height={48} />
-        <Text ml="10px">{item.name}</Text>
-      </Flex>
+      <Box>
+        <Flex alignItems="center">
+          <ResponsiveLogo src={item.imageUrl} width={48} height={48} />
+          <Text ml="10px">{item.name}</Text>
+        </Flex>
+
+        <LinkExternal href={bkc} fontSize="12px" bold={false} mt="10px">
+          View Token Contract
+        </LinkExternal>
+      </Box>
+
       <Text textAlign="center"> {item.price}</Text>
       <SellButton item={item}>Sell</SellButton>
     </ResponsiveGrid>
@@ -88,12 +98,12 @@ const ItemTable: React.FC<{
   return (
     <TableWrapper>
       <ResponsiveGrid>
-        <Text color="secondary" fontSize="12px" bold>
-        MorningMoon Vilage Item
+        <Text color="secondary" fontSize="16px" bold>
+        Tokens
         </Text>
 
-        <Text textAlign="center" color="secondary" fontSize="12px" bold>
-          Cost (LUMI)
+        <Text textAlign="center" color="secondary" fontSize="16px" bold>
+          Price (LUMI)
         </Text>
       </ResponsiveGrid>
 

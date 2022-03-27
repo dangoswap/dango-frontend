@@ -37,6 +37,9 @@ const Market = () => {
         </Heading>
       </PageHeader>
       <Page>
+        <Heading scale="lg" mt="40px" mb="16px" ml="15px">
+          {t('Morning Moon Village')}
+        </Heading>
         <ItemTable itemDatas={marketItems} />
       </Page>
     </>
