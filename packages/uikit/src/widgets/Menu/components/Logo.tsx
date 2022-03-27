@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 import Flex from "../../../components/Box/Flex";
-import { LogoIcon, LogoWithTextIcon } from "../../../components/Svg";
+import { Text } from "../../../components/Text";
+import { LogoIcon, LogoWithTextIcon, DangoIcon } from "../../../components/Svg";
+import { useMatchBreakpoints } from "../../../hooks";
 import { MenuContext } from "../context";
 
 interface Props {
@@ -24,7 +26,7 @@ const StyledLink = styled("a")`
     }
   }
   .desktop-icon {
-    width: 160px;
+    width: 32px;
     display: none;
     ${({ theme }) => theme.mediaQueries.nav} {
       display: block;
@@ -45,11 +47,22 @@ const StyledLink = styled("a")`
 
 const Logo: React.FC<Props> = ({ isDark, href }) => {
   const { linkComponent } = useContext(MenuContext);
+  const { isMobile } = useMatchBreakpoints();
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>
-      <LogoIcon className="mobile-icon" />
-      <LogoWithTextIcon className="desktop-icon" isDark={isDark} />
+      {/* <LogoIcon className="mobile-icon" />
+      <LogoWithTextIcon className="desktop-icon" isDark={isDark} /> */}
+      {isMobile ? (
+        <DangoIcon />
+      ) : (
+        <Flex>
+          <DangoIcon />
+          <Text bold fontSize="22px" verticalAlign="center">
+            DangoSwap
+          </Text>
+        </Flex>
+      )}
     </>
   );
 
