@@ -12,7 +12,7 @@ const options = {
 
 const swap = async (tokenVendorContract, amount, from, to, decimals = 18) => {
     const gasPrice = getGasPrice()
-    return tokenVendorContract.swapTokens(new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString(), from, to, {
+    return tokenVendorContract.swapTokens(new BigNumber(amount).times(BIG_TEN.pow(decimals)).toString(), {
       ...options,
       gasPrice,
     })

@@ -80,11 +80,9 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
   const { theme } = useTheme()
   const [itemsToSell, setItemsToSell] = useState('')
   const [totalCost, setTotalCost] = useState('')
-  const [sellingStage, setSellingStage] = useState<SellingStage>(SellingStage.Sell)
   const tokenVendorContract = useTokenVendor(item.itemId)
   
   const tokenInContract = useERC20(tokens.tokenIn.address)
-  const { onStake } = useSwap(item.itemId)
   
   const { toastSuccess } = useToast()
   const { balance: userCake, fetchStatus } = useTokenBalance(tokens.tokenIn.address)
@@ -119,7 +117,7 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
       )
     },
     onConfirm: () => {
-      return callWithGasPrice(tokenVendorContract, 'swapTokens', [(new BigNumber(itemsToSell).times(DEFAULT_TOKEN_DECIMAL)).toString(), account, account])
+      return callWithGasPrice(tokenVendorContract, 'swapTokens', [(new BigNumber(itemsToSell).times(DEFAULT_TOKEN_DECIMAL)).toString()])
     },
     onSuccess: async ({ receipt }) => {
       onDismiss?.()

@@ -24,10 +24,9 @@
     "type": "event",
     "name": "SwapTokens",
     "inputs": [
-      { "type": "address", "name": "_from", "internalType": "address", "indexed": true },
       { "type": "address", "name": "_to", "internalType": "address", "indexed": true },
-      { "type": "uint256", "name": "tokenInAmount", "internalType": "uint256", "indexed": false },
-      { "type": "uint256", "name": "tokenOutAmount", "internalType": "uint256", "indexed": false }
+      { "type": "uint256", "name": "_tokenInAmount", "internalType": "uint256", "indexed": false },
+      { "type": "uint256", "name": "_tokenOutAmount", "internalType": "uint256", "indexed": false }
     ],
     "anonymous": false
   },
@@ -52,13 +51,9 @@
   {
     "type": "function",
     "stateMutability": "nonpayable",
-    "outputs": [{ "type": "uint256", "name": "tokenOutAmount", "internalType": "uint256" }],
+    "outputs": [{ "type": "uint256", "name": "_tokenOutAmount", "internalType": "uint256" }],
     "name": "swapTokens",
-    "inputs": [
-      { "type": "uint256", "name": "tokenInAmount", "internalType": "uint256" },
-      { "type": "address", "name": "from", "internalType": "address" },
-      { "type": "address", "name": "to", "internalType": "address" }
-    ]
+    "inputs": [{ "type": "uint256", "name": "_tokenInAmount", "internalType": "uint256" }]
   },
   {
     "type": "function",
@@ -108,5 +103,15 @@
     "outputs": [{ "type": "address", "name": "", "internalType": "contract ERC20" }],
     "name": "weth",
     "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "withdrawToken",
+    "inputs": [
+      { "type": "address", "name": "_tokenRecipient", "internalType": "address" },
+      { "type": "uint256", "name": "_amount", "internalType": "uint256" }
+    ]
   }
 ]

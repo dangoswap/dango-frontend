@@ -1,28 +1,13 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React from 'react'
 import {
-  Table,
-  Th,
-  Td,
-  Card,
-  Flex,
-  BnbUsdtPairTokenIcon,
   Heading,
   useMatchBreakpoints,
-  ProfileAvatar,
-  ArrowBackIcon,
-  Text,
-  ArrowForwardIcon,
-  useModal,
-  Button,
 } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/Layout/Page'
 import PageHeader from 'components/PageHeader'
 import marketItems from 'config/constants/market/index'
-import { AutoRow } from 'components/Layout/Row'
-import { marketBaseUrl } from './constants'
-import SellButton from './components/SellButton'
 import ItemTable from './components/Tables/ItemTable'
 
 const Market = () => {
