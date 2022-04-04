@@ -148,31 +148,31 @@ export const socials = [
       },
     ],
   },
-  {
-    label: "Reddit",
-    icon: RedditIcon,
-    href: "https://reddit.com/r/pancakeswap",
-  },
-  {
-    label: "Instagram",
-    icon: InstagramIcon,
-    href: "https://instagram.com/pancakeswap_official",
-  },
+  // {
+  //   label: "Reddit",
+  //   icon: RedditIcon,
+  //   href: "https://reddit.com/r/pancakeswap",
+  // },
+  // {
+  //   label: "Instagram",
+  //   icon: InstagramIcon,
+  //   href: "https://instagram.com/pancakeswap_official",
+  // },
   {
     label: "Github",
     icon: GithubIcon,
     href: "https://github.com/pancakeswap/",
   },
-  {
-    label: "Discord",
-    icon: DiscordIcon,
-    href: "https://discord.gg/pancakeswap",
-  },
-  {
-    label: "Medium",
-    icon: MediumIcon,
-    href: "https://pancakeswap.medium.com/",
-  },
+  // {
+  //   label: "Discord",
+  //   icon: DiscordIcon,
+  //   href: "https://discord.gg/pancakeswap",
+  // },
+  // {
+  //   label: "Medium",
+  //   icon: MediumIcon,
+  //   href: "https://pancakeswap.medium.com/",
+  // },
 ];
 
 export const langs: Language[] = [...Array(20)].map((_, i) => ({

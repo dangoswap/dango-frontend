@@ -58,7 +58,7 @@ const Logo: React.FC<Props> = ({ isDark, href }) => {
       ) : (
         <Flex>
           <DangoIcon />
-          <Text bold fontSize="22px" verticalAlign="center">
+          <Text bold fontSize="22px" verticalAlign="center" color="#000000">
             DangoSwap
           </Text>
         </Flex>

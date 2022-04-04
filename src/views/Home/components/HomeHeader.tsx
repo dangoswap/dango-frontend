@@ -44,7 +44,7 @@ const HomeHeader = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px" textAlign="center">
-            {t('DangoSwap')}
+            {t('GameFi-Focused Defi on Bitkub Chain')}
           </Heading>
           <Heading scale="lg" mb="24px" textAlign="center" >
             {t('Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa optio et laudantium ipsum ipsam nesciunt, odio hic quibusdam molestias magnam.')}
