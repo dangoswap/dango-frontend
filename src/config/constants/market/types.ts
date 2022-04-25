@@ -5,6 +5,7 @@ export type MarketItem = {
   name: string
   description?: string
   contractAddress: Address
+  tokenIn: Address
   price: string
   isFinished?: boolean
   imageUrl: string

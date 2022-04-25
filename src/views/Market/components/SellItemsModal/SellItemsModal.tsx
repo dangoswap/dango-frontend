@@ -34,6 +34,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import ApproveConfirmButtons, { ButtonArrangement } from 'components/ApproveConfirmButtons'
 import { MarketItem } from 'config/constants/market/types'
+import { getAddress } from 'utils/addressHelpers'
 import LogoLoader from '../CurrencyLogo/LogoLoader'
 
 const StyledModal = styled(Modal)`
@@ -82,10 +83,10 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
   const [totalCost, setTotalCost] = useState('')
   const tokenVendorContract = useTokenVendor(item.itemId)
   
-  const tokenInContract = useERC20(tokens.tokenIn.address)
+  const tokenInContract = useERC20(getAddress(item.tokenIn))
   
   const { toastSuccess } = useToast()
-  const { balance: userCake, fetchStatus } = useTokenBalance(tokens.tokenIn.address)
+  const { balance: userCake, fetchStatus } = useTokenBalance(getAddress(item.tokenIn))
 
   // const cakePriceBusd = usePriceCakeBusd()
   const dispatch = useAppDispatch()
@@ -152,7 +153,7 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
           {account && (
             <Flex justifyContent="flex-end">
               <Text fontSize="12px" color="textSubtle" mr="4px">
-                TI {t('Balance')}:
+                {item.name} {t('Balance')}:
               </Text>
               <Text fontSize="12px" color="textSubtle">
                   {userCakeDisplayBalance}
