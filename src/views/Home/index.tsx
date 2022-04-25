@@ -32,6 +32,11 @@ const StyledHomeHeaderSection = styled(PageSection)`
   ${({ theme }) => theme.mediaQueries.md} {
     padding-top: 48px;
   }
+
+  backgroundImage {
+    opacity: 0.5;
+  }
+
 `
 
 const UserBannerWrapper = styled(Container)`
@@ -69,12 +74,13 @@ const Home: React.FC = () => {
         //     : 'linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)'
         // }
         style={{ 
-          backgroundImage: 'url(/images/dango-bg.jpg)', 
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url(/images/dango-bg.jpg)', 
           backgroundPosition: 'center',
-          backgroundSize: "cover" }}
+          backgroundSize: "fill"}}
         index={1}
         hasCurvedDivider={false}
       >
+      
         <HomeHeader />
       </StyledHomeHeaderSection>
       {/* <StyledHeroSection
