@@ -29,22 +29,23 @@ export const vaultPoolConfig = {
   // },
 } as const
 
-const pools: SerializedPoolConfig[] = [
-  {
-    sousId: 0,
-    stakingToken: serializedTokens.cake,
-    earningToken: serializedTokens.cake,
-    contractAddress: {
-      25925: '0x032ACF3735526892b1D5eEb00E1f7a4906e6dF59',
-      56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
-    },
-    poolCategory: PoolCategory.CORE,
-    harvest: true,
-    tokenPerBlock: '10',
-    sortOrder: 1,
-    isFinished: false,
-  },
+// const pools: SerializedPoolConfig[] = [
+//   {
+//     sousId: 0,
+//     stakingToken: serializedTokens.cake,
+//     earningToken: serializedTokens.cake,
+//     contractAddress: {
+//       25925: '0x032ACF3735526892b1D5eEb00E1f7a4906e6dF59',
+//       56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
+//     },
+//     poolCategory: PoolCategory.CORE,
+//     harvest: true,
+//     tokenPerBlock: '10',
+//     sortOrder: 1,
+//     isFinished: false,
+//   },
 
-].filter((p) => !!p.contractAddress[CHAIN_ID])
+// ].filter((p) => !!p.contractAddress[CHAIN_ID])
+const pools: SerializedPoolConfig[] = []
 
 export default pools

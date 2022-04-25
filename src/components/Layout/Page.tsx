@@ -25,8 +25,9 @@ const StyledPage = styled(Container)`
 export const PageMeta: React.FC<{ symbol?: string }> = ({ symbol }) => {
   const { t } = useTranslation()
   const { pathname } = useRouter()
-  const cakePriceUsd = useCakeBusdPrice()
-  const cakePriceUsdDisplay = cakePriceUsd ? `$${cakePriceUsd.toFixed(3)}` : '...'
+  // const cakePriceUsd = useCakeBusdPrice()
+  // const cakePriceUsdDisplay = cakePriceUsd ? `$${cakePriceUsd.toFixed(3)}` : '...'
+  const cakePriceUsdDisplay = '...'
 
   const pageMeta = getCustomMeta(pathname, t) || {}
   const { title, description, image } = { ...DEFAULT_META, ...pageMeta }

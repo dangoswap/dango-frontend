@@ -28,8 +28,11 @@ const FarmsPoolsRow = () => {
   const [showFarms, setShowFarms] = useState(false)
   const { t } = useTranslation()
   const { observerRef, isIntersecting } = useIntersectionObserver()
-  const { topFarms } = useGetTopFarmsByApr(isIntersecting)
-  const { topPools } = useGetTopPoolsByApr(isIntersecting)
+  // const { topFarms } = useGetTopFarmsByApr(isIntersecting)
+  // const { topPools } = useGetTopPoolsByApr(isIntersecting)
+
+  const topFarms = []
+  const topPools = []
 
   const timer = useRef<ReturnType<typeof setTimeout>>(null)
   const isLoaded = topFarms[0] && topPools[0]
