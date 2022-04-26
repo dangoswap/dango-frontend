@@ -12,6 +12,7 @@ import {
   getMasterchefContract,
   getPointCenterIfoContract,
   getSouschefContract,
+  getTokenVendorContract,
   getClaimRefundContract,
   getTradingCompetitionContract,
   getTradingCompetitionContractV2,
@@ -134,6 +135,11 @@ export const useMasterchef = () => {
 export const useSousChef = (id) => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getSouschefContract(id, library.getSigner()), [id, library])
+}
+
+export const useTokenVendor = (id) => {
+  const { library } = useActiveWeb3React()
+  return useMemo(() => getTokenVendorContract(id, library.getSigner()), [id, library])
 }
 
 export const usePointCenterIfoContract = () => {

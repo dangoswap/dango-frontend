@@ -91,8 +91,20 @@ const config = {
         destination: '/nfts',
         permanent: true,
       },
+      {
+        source: '/market',
+        destination: '/market',
+        permanent: true,
+      },
     ]
   },
 }
 
 module.exports = withBundleAnalyzer(withSentryConfig(config, sentryWebpackPluginOptions))
+
+module.exports = {
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
+}

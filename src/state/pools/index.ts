@@ -72,7 +72,8 @@ const initialState: PoolsState = {
 
 // Thunks
 const cakePool = poolsConfig.find((pool) => pool.sousId === 0)
-const cakePoolAddress = getAddress(cakePool.contractAddress)
+const cakePoolAddress = ''
+// const cakePoolAddress = getAddress(cakePool.contractAddress)
 const cakeContract = getCakeContract()
 export const fetchCakePoolPublicDataAsync = () => async (dispatch, getState) => {
   const prices = getTokenPricesFromFarm(getState().farms.data)

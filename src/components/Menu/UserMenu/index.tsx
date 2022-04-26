@@ -73,7 +73,7 @@ const UserMenu = () => {
           {t('Recent Transactions')}
           {hasPendingTransactions && <RefreshIcon spin />}
         </UserMenuItem>
-        <UserMenuDivider />
+        {/* <UserMenuDivider />
         <UserMenuItem
           as="button"
           disabled={isWrongNetwork}
@@ -82,7 +82,7 @@ const UserMenu = () => {
           {t('Your NFTs')}
         </UserMenuItem>
         <ProfileUserMenuItem isLoading={isLoading} hasProfile={hasProfile} disabled={isWrongNetwork} />
-        <UserMenuDivider />
+        <UserMenuDivider /> */}
         <UserMenuItem as="button" onClick={logout}>
           <Flex alignItems="center" justifyContent="space-between" width="100%">
             {t('Disconnect')}

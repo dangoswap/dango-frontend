@@ -3,7 +3,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import { Flex, Text, Button, ButtonMenu, ButtonMenuItem, Message, Link } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { NftToken } from 'state/nftMarket/types'
-import { getBscScanLinkForNft } from 'utils'
+import { getBkcScanLinkForNft } from 'utils'
 import { FetchStatus } from 'config/constants/types'
 import { Divider, RoundedImage } from '../shared/styles'
 import { BorderedBox, BnbAmountCell } from './styles'
@@ -53,7 +53,7 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
                 pt="2px"
                 external
                 variant="text"
-                href={getBscScanLinkForNft(nftToBuy.collectionAddress, nftToBuy.tokenId)}
+                href={getBkcScanLinkForNft(nftToBuy.collectionAddress, nftToBuy.tokenId)}
               >
                 {nftToBuy.tokenId}
               </Button>
@@ -78,7 +78,7 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
           </Text>
           <BnbAmountCell bnbAmount={nftPrice} />
           <Text small color="textSubtle">
-            {t('%symbol% in wallet', { symbol: paymentCurrency === PaymentCurrency.BNB ? 'BNB' : 'WBNB' })}
+            {t('%symbol% in wallet', { symbol: paymentCurrency === PaymentCurrency.BNB ? 'KUB' : 'WKUB' })}
           </Text>
           {!account ? (
             <Flex justifySelf="flex-end">
@@ -96,7 +96,7 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
           <Message p="8px" variant="danger">
             <Text>
               {t('Not enough %symbol% to purchase this NFT', {
-                symbol: paymentCurrency === PaymentCurrency.BNB ? 'BNB' : 'WBNB',
+                symbol: paymentCurrency === PaymentCurrency.BNB ? 'KUB' : 'WKUB',
               })}
             </Text>
           </Message>
@@ -127,7 +127,7 @@ const ReviewStage: React.FC<ReviewStageProps> = ({
           {t('Checkout')}
         </Button>
         <Button as={Link} external style={{ width: '100%' }} href="/swap?outputCurrency=BNB" variant="secondary">
-          {t('Get %symbol1% or %symbol2%', { symbol1: 'BNB', symbol2: 'WBNB' })}
+          {t('Get %symbol1% or %symbol2%', { symbol1: 'KUB', symbol2: 'WKUB' })}
         </Button>
       </Flex>
     </>

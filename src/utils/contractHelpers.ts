@@ -3,6 +3,7 @@ import type { Provider } from '@ethersproject/providers'
 import { Contract } from '@ethersproject/contracts'
 import { simpleRpcProvider } from 'utils/providers'
 import poolsConfig from 'config/constants/pools'
+import marketItems from 'config/constants/market/index'
 import { PoolCategory } from 'config/constants/types'
 import tokens from 'config/constants/tokens'
 
@@ -52,6 +53,7 @@ import lotteryV2Abi from 'config/abi/lotteryV2.json'
 import masterChef from 'config/abi/masterchef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefV2 from 'config/abi/sousChefV2.json'
+import tokenVendor from 'config/abi/tokenVendor.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
 import claimRefundAbi from 'config/abi/claimRefund.json'
 import tradingCompetitionAbi from 'config/abi/tradingCompetition.json'
@@ -138,6 +140,10 @@ export const getSouschefContract = (id: number, signer?: Signer | Provider) => {
 export const getSouschefV2Contract = (id: number, signer?: Signer | Provider) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
   return getContract(sousChefV2, getAddress(config.contractAddress), signer) as SousChefV2
+}
+export const getTokenVendorContract = (id: number, signer?: Signer | Provider) => {
+  const config = marketItems.find((item) => item.itemId === id)
+  return getContract(tokenVendor, getAddress(config.contractAddress), signer) as SousChefV2
 }
 
 export const getPointCenterIfoContract = (signer?: Signer | Provider) => {

@@ -1,21 +1,21 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { AddressZero } from '@ethersproject/constants'
 import { TokenAmount, Token, ChainId, Percent, JSBI } from '@pancakeswap/sdk'
-import { getBscScanLink, calculateSlippageAmount, isAddress, calculateGasMargin, basisPointsToPercent } from 'utils'
+import { getBkcScanLink, calculateSlippageAmount, isAddress, calculateGasMargin, basisPointsToPercent } from 'utils'
 
 describe('utils', () => {
-  describe('#getBscScanLink', () => {
+  describe('#getBkcScanLink', () => {
     it('correct for tx', () => {
-      expect(getBscScanLink('abc', 'transaction', ChainId.MAINNET)).toEqual('https://bscscan.com/tx/abc')
+      expect(getBkcScanLink('abc', 'transaction', ChainId.MAINNET)).toEqual('https://bscscan.com/tx/abc')
     })
     it('correct for token', () => {
-      expect(getBscScanLink('abc', 'token', ChainId.MAINNET)).toEqual('https://bscscan.com/token/abc')
+      expect(getBkcScanLink('abc', 'token', ChainId.MAINNET)).toEqual('https://bscscan.com/token/abc')
     })
     it('correct for address', () => {
-      expect(getBscScanLink('abc', 'address', ChainId.MAINNET)).toEqual('https://bscscan.com/address/abc')
+      expect(getBkcScanLink('abc', 'address', ChainId.MAINNET)).toEqual('https://bscscan.com/address/abc')
     })
     it('enum', () => {
-      expect(getBscScanLink('abc', 'address', ChainId.TESTNET)).toEqual('https://testnet.bscscan.com/address/abc')
+      expect(getBkcScanLink('abc', 'address', ChainId.TESTNET)).toEqual('https://testnet.bscscan.com/address/abc')
     })
   })
 

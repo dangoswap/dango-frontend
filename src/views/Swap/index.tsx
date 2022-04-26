@@ -96,7 +96,8 @@ export default function Swap() {
   const { isMobile } = useMatchBreakpoints()
   const [isChartExpanded, setIsChartExpanded] = useState(false)
   const [userChartPreference, setUserChartPreference] = useExchangeChartManager(isMobile)
-  const [isChartDisplayed, setIsChartDisplayed] = useState(userChartPreference)
+  const [isChartDisplayedClose, setIsChartDisplayed] = useState(userChartPreference)
+  const isChartDisplayed = false
   const { refreshBlockNumber, isLoading } = useRefreshBlockNumberID()
 
   useEffect(() => {

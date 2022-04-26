@@ -41,6 +41,7 @@ export { default as CommunityIcon } from "./Icons/Community";
 export { default as CommunityFilledIcon } from "./Icons/CommunityFilled";
 export { default as CopyIcon } from "./Icons/Copy";
 export { default as CurrencyIcon } from "./Icons/Currency";
+export { default as DangoIcon } from "./Icons/DangoIcon";
 export { default as DiscordIcon } from "./Icons/Discord";
 export { default as EarnIcon } from "./Icons/Earn";
 export { default as EarnFillIcon } from "./Icons/EarnFill";

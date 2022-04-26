@@ -12,6 +12,7 @@ import type { AppState } from 'state'
 import priceHelperLpsConfig from 'config/constants/priceHelperLps'
 import fetchFarms from './fetchFarms'
 import getFarmsPrices from './getFarmsPrices'
+import { getKubPrice } from './getKubPrice'
 import {
   fetchFarmUserEarnings,
   fetchFarmUserAllowances,
@@ -59,7 +60,8 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
     const farmsWithPriceHelpers = farmsCanFetch.concat(priceHelperLpsConfig)
 
     const farms = await fetchFarms(farmsWithPriceHelpers)
-    const farmsWithPrices = getFarmsPrices(farms)
+    const kubPrice = await getKubPrice()
+    const farmsWithPrices = getFarmsPrices(farms, kubPrice)
 
     // Filter out price helper LP config farms
     const farmsWithoutHelperLps = farmsWithPrices.filter((farm: SerializedFarm) => {

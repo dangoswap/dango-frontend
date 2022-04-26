@@ -7,7 +7,7 @@ import { useTranslation } from 'contexts/Localization'
 import truncateHash from 'utils/truncateHash'
 import { multiplyPriceByAmount } from 'utils/prices'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
-import { getBscScanLink } from 'utils'
+import { getBkcScanLink } from 'utils'
 import ActivityEventText from './ActivityEventText'
 import NFTMedia from '../NFTMedia'
 
@@ -100,8 +100,8 @@ const MobileModal: React.FC<MobileModalProps> = ({
           </Flex>
         </LightGreyCard>
         <Flex flexDirection="column" pt="16px" alignItems="center">
-          <Button as={Link} external href={getBscScanLink(activity.tx, 'transaction', chainId)}>
-            {t('View on BscScan')}
+          <Button as={Link} external href={getBkcScanLink(activity.tx, 'transaction', chainId)}>
+            {t('View on BkcScan')}
           </Button>
         </Flex>
       </Flex>
