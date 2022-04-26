@@ -15,10 +15,8 @@ jobs:
         with:
           node-version: 14.x
         
-      - name: Add local dependencies
-        run: yarn add file:../dango-swap-sdk -W
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Build project
         run: yarn build
       - name: Export static files
