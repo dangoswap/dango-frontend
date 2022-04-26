@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/sdk'
+import { ChainId } from '@dangoswap/sdk'
 import BigNumber from 'bignumber.js/bignumber'
 import { BIG_TEN } from 'utils/bigNumber'
 import { CHAIN_ID } from 'config/constants/networks'
