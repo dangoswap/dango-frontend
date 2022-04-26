@@ -17,6 +17,8 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Add local package
+        run: yarn add @pancakeswap/sdk@“file:./dango-swap-sdk"
       - name: Build project
         run: yarn build
       - name: Export static files
