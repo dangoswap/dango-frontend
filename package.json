@@ -8,7 +8,8 @@
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
+    "export": "yarn build && next export && touch ./out/.nojekyll",
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
