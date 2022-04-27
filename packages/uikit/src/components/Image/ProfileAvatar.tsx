@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BunnyPlaceholder from "../Svg/Icons/BunnyPlaceholder";
+import Help from "../Svg/Icons/Help";
 import BackgroundImage from "./BackgroundImage";
 import { BackgroundImageProps } from "./types";
 
@@ -8,7 +8,7 @@ const StyledProfileAvatar = styled(BackgroundImage)`
   border-radius: 50%;
 `;
 
-const StyledBunnyPlaceholder = styled(BunnyPlaceholder)`
+const StyledBunnyPlaceholder = styled(Help)`
   height: 100%;
   width: 100%;
 `;

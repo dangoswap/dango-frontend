@@ -7,11 +7,11 @@ import { nodes } from './getRpcUrl'
 
 const NETWORK_CONFIG = {
   [ChainId.MAINNET]: {
-    name: 'BNB Smart Chain Mainnet',
+    name: 'Bitkub Chain',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.MAINNET],
   },
   [ChainId.TESTNET]: {
-    name: 'BNB Smart Chain Testnet',
+    name: 'Bitkub Chain Testnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.TESTNET],
   },
 }

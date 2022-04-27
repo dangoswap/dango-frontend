@@ -18,29 +18,29 @@ const connectors: Config[] = [
     connectorId: ConnectorNames.Injected,
     priority: 1,
   },
-  {
-    title: "Binance Wallet",
-    icon: BinanceChain,
-    connectorId: ConnectorNames.BSC,
-    priority: 2,
-  },
-  {
-    title: "Coinbase Wallet",
-    icon: CoinbaseWallet,
-    connectorId: ConnectorNames.WalletLink,
-    priority: 3,
-  },
+  // {
+  //   title: "Binance Wallet",
+  //   icon: BinanceChain,
+  //   connectorId: ConnectorNames.BSC,
+  //   priority: 2,
+  // },
+  // {
+  //   title: "Coinbase Wallet",
+  //   icon: CoinbaseWallet,
+  //   connectorId: ConnectorNames.WalletLink,
+  //   priority: 3,
+  // },
   {
     title: "Trust Wallet",
     icon: TrustWallet,
     connectorId: ConnectorNames.Injected,
-    priority: 4,
+    priority: 2,
   },
   {
     title: "WalletConnect",
     icon: WalletConnect,
     connectorId: ConnectorNames.WalletConnect,
-    priority: 5,
+    priority: 3,
   },
   {
     title: "MathWallet",
@@ -60,18 +60,18 @@ const connectors: Config[] = [
     connectorId: ConnectorNames.Injected,
     priority: 999,
   },
-  {
-    title: "Coin98",
-    icon: Coin98,
-    connectorId: ConnectorNames.Injected,
-    priority: 999,
-  },
-  {
-    title: "Blocto",
-    icon: Blocto,
-    connectorId: ConnectorNames.Blocto,
-    priority: 999,
-  },
+  // {
+  //   title: "Coin98",
+  //   icon: Coin98,
+  //   connectorId: ConnectorNames.Injected,
+  //   priority: 999,
+  // },
+  // {
+  //   title: "Blocto",
+  //   icon: Blocto,
+  //   connectorId: ConnectorNames.Blocto,
+  //   priority: 999,
+  // },
 ];
 
 export default connectors;
