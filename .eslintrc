@@ -6,25 +6,25 @@
   },
   "plugins": ["lodash"],
   "extends": ["@pancakeswap/eslint-config-pancake", "plugin:react/jsx-runtime", "plugin:@next/next/recommended"],
-  // "rules": {
-  //   "import/no-unresolved": 0,
-  //   "no-console": ["warn", { "allow": ["info", "warn", "error", "debug"] }],
-  //   "no-plusplus": 0,
-  //   "prefer-destructuring": ["warn", { "object": true, "array": false }],
-  //   "no-underscore-dangle": 0,
-  //   "lodash/import-scope": [2, "method"],
-  //   "@next/next/no-img-element": 0,
-  //   "no-sparse-arrays": 0,
-  //   "react-hooks/exhaustive-deps": [
-  //     "warn",
-  //     {
-  //       "additionalHooks": "(useFastRefreshEffect|useSlowRefreshEffect)"
-  //     }
-  //   ],
   "rules": {
-    "react/no-unescaped-entities": "off",
-    "@next/next/no-page-custom-font": "off"
-  },
+    "import/no-unresolved": 0,
+    "no-console": ["warn", { "allow": ["info", "warn", "error", "debug"] }],
+    "no-plusplus": 0,
+    "prefer-destructuring": ["warn", { "object": true, "array": false }],
+    "no-underscore-dangle": 0,
+    "lodash/import-scope": [2, "method"],
+    "@next/next/no-img-element": 0,
+    "no-sparse-arrays": 0,
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useFastRefreshEffect|useSlowRefreshEffect)"
+      }
+    ],
+  // "rules": {
+  //   "react/no-unescaped-entities": "off",
+  //   "@next/next/no-page-custom-font": "off"
+  // },
     // Start temporary rules
     // These rules are here just to keep the lint error to 0 during the migration to the new rule set
     // They need to be removed and fixed as soon as possible
