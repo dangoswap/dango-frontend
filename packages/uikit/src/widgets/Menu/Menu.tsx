@@ -133,11 +133,11 @@ const Menu: React.FC<NavProps> = ({
           <StyledNav>
             <Flex>
               <Logo isDark={isDark} href={homeLink?.href ?? "/"} />
-              {/* {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />} */}
+              {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" mt="5px" />}
             </Flex>
-            <Flex alignItems="center">
+            {/* <Flex alignItems="center">
             {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />}
-            </Flex>
+            </Flex> */}
             <Flex alignItems="center" height="100%">
               {/* {!isMobile && !isMd && (
                 <Box mr="12px">
