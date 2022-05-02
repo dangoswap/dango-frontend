@@ -20,7 +20,7 @@ const SellButton: React.FC<SellButtonProps> = ({item}) => {
   }
 
   return (
-    <Button type="button" onClick={handleClickButton}>
+    <Button disabled={item.totalLumiBalance === "0"} type="button" onClick={handleClickButton}>
         {t('Sell')}
       </Button>
   )

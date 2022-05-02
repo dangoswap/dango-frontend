@@ -12,7 +12,7 @@ const marketItems: MarketItem[] = [
             96: '0x9Ea7E0435B5E50e1DCBB8Eacd63F0dbD3003BdAA',
             25925: '0xed1ABbAb02049c4B14336dbf0c3080D626DdaAFB',
         },
-        price: '0.12',
+        price: '0.11',
         imageUrl: 'https://dangoswap.finance/images/tokens/0x9Ea7E0435B5E50e1DCBB8Eacd63F0dbD3003BdAA.png',
         isFinished: false
     },
@@ -27,7 +27,7 @@ const marketItems: MarketItem[] = [
             96: '0x9Ea7E0435B5E50e1DCBB8Eacd63F0dbD3003BdAA',
             25925: '0xed1ABbAb02049c4B14336dbf0c3080D626DdaAFB',
         },
-        price: '0.12',
+        price: '0.11',
         imageUrl: 'https://dangoswap.finance/images/tokens/0xE3bee928D481b40BB6D0F0EDbfD888a7845CF622.png',
         isFinished: false
     },
@@ -42,7 +42,7 @@ const marketItems: MarketItem[] = [
             96: '0x9Ea7E0435B5E50e1DCBB8Eacd63F0dbD3003BdAA',
             25925: '0xed1ABbAb02049c4B14336dbf0c3080D626DdaAFB',
         },
-        price: '0.12',
+        price: '0.11',
         imageUrl: 'https://dangoswap.finance/images/tokens/0x4fA393FC50BcDF367145163b920bB37C21e596ec.png',
         isFinished: false
     },

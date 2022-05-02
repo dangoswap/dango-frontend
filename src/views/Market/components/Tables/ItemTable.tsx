@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, Fragment } from 'react'
+import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import {
   Text,
@@ -19,6 +20,8 @@ import Percent from 'views/Info/components/Percent'
 import { useTranslation } from 'contexts/Localization'
 import { getBkcScanLink } from 'utils'
 import { getAddress } from 'utils/addressHelpers'
+import { getBalanceNumber } from 'utils/formatBalance'
+import useGetTotalLumiBalance from '../../hooks/useGetTotalLumiBalance'
 import { ClickableColumnHeader, TableWrapper, PageButtons, Arrow, Break } from './shared'
 import SellButton from '../SellButton'
 
@@ -37,7 +40,7 @@ const ResponsiveGrid = styled.div`
 
   padding: 0 24px;
 
-  grid-template-columns: repeat(2, 1fr) 65px;
+  grid-template-columns: repeat(3, 1fr) 65px;
 `
 
 const ResponsiveLogo = styled(ProfileAvatar)`
@@ -67,6 +70,7 @@ const TableLoader: React.FC = () => {
 const DataRow: React.FC<{ item: MarketItem }> = ({ item }) => {
   const { isXs, isSm } = useMatchBreakpoints()
   const bkc = getBkcScanLink(getAddress(item.contractAddress), 'address')
+  const totalLumiBalance = new BigNumber(item.totalLumiBalance)
   return (
     <ResponsiveGrid>
       <Box>
@@ -81,6 +85,7 @@ const DataRow: React.FC<{ item: MarketItem }> = ({ item }) => {
       </Box>
 
       <Text textAlign="center"> {item.price}</Text>
+      <Text textAlign="center"> {getBalanceNumber(totalLumiBalance)}</Text>
       <SellButton item={item}>Sell</SellButton>
     </ResponsiveGrid>
   )
@@ -90,8 +95,9 @@ const ItemTable: React.FC<{
   itemDatas: MarketItem[] | undefined
 }> = ({ itemDatas }) => {
   const { t } = useTranslation()
+  const { items, fetchStatus } = useGetTotalLumiBalance()
 
-  if (!itemDatas) {
+  if (!fetchStatus) {
     return <Skeleton />
   }
 
@@ -105,12 +111,16 @@ const ItemTable: React.FC<{
         <Text textAlign="center" color="secondary" fontSize="16px" bold>
           Price (LUMI)
         </Text>
+
+        <Text textAlign="center" color="secondary" fontSize="16px" bold>
+          Balance (LUMI)
+        </Text>
       </ResponsiveGrid>
 
       <Break />
-      {itemDatas.length > 0 ? (
+      {items.length > 0 ? (
         <>
-          {itemDatas.map((data, i) => {
+          {items.map((data, i) => {
             if (data) {
               return (
                 <Fragment key={data.name}>

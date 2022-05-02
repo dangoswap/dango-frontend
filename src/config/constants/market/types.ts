@@ -7,6 +7,7 @@ export type MarketItem = {
   contractAddress: Address
   tokenIn: Address
   price: string
+  totalLumiBalance?: string
   isFinished?: boolean
   imageUrl: string
 }

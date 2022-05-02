@@ -1,35 +1,24 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import { DEFAULT_TOKEN_DECIMAL, DEFAULT_GAS_LIMIT } from 'config'
-import { BIG_TEN, BIG_ZERO, ethersToBigNumber } from 'utils/bigNumber'
+import { DEFAULT_TOKEN_DECIMAL } from 'config'
 import { requiresApproval } from 'utils/requiresApproval'
 import { MaxUint256 } from '@ethersproject/constants'
-import { ethers } from 'ethers'
 import {
   Modal,
   Text,
   Flex,
-  HelpIcon,
   BalanceInput,
-  useTooltip,
-  Skeleton,
-  Button,
-  ArrowForwardIcon,
 } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { useWeb3React } from '@web3-react/core'
-import tokens from 'config/constants/tokens'
 import { getFullDisplayBalance, getDecimalAmount } from 'utils/formatBalance'
-import { useAppDispatch } from 'state'
-import { usePriceCakeBusd } from 'state/farms/hooks'
 import useTheme from 'hooks/useTheme'
 import useTokenBalance, { FetchStatus } from 'hooks/useTokenBalance'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
-import { useCake, useERC20, useTokenVendor } from 'hooks/useContract'
+import { useERC20, useTokenVendor } from 'hooks/useContract'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useToast from 'hooks/useToast'
-import useSwap from 'views/Market/hooks/useSwap'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import ApproveConfirmButtons, { ButtonArrangement } from 'components/ApproveConfirmButtons'
@@ -69,11 +58,6 @@ interface SellItemsModalProps {
   onDismiss?: () => void
 }
 
-enum SellingStage {
-  Sell = 'Sell',
-  EDIT = 'Edit',
-}
-
 const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
   const { account } = useWeb3React()
   const { callWithGasPrice } = useCallWithGasPrice()
@@ -86,11 +70,10 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
   const tokenInContract = useERC20(getAddress(item.tokenIn))
   
   const { toastSuccess } = useToast()
-  const { balance: userCake, fetchStatus } = useTokenBalance(getAddress(item.tokenIn))
+  const { balance: tokenInBalance, fetchStatus } = useTokenBalance(getAddress(item.tokenIn))
 
   // const cakePriceBusd = usePriceCakeBusd()
-  const dispatch = useAppDispatch()
-  const userCakeDisplayBalance = getFullDisplayBalance(userCake, 18, 3)
+  const tokenInDisplayBalance = getFullDisplayBalance(tokenInBalance, 18, 3)
 
   useEffect(() => {
     const numberOfItemsToSell= new BigNumber(itemsToSell)
@@ -156,7 +139,7 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
                 {item.name} {t('Balance')}:
               </Text>
               <Text fontSize="12px" color="textSubtle">
-                  {userCakeDisplayBalance}
+                  {tokenInDisplayBalance}
                 </Text>
             </Flex>
           )}

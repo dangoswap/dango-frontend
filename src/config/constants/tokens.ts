@@ -2024,6 +2024,14 @@ export const mainnetTokens = defineTokens({
     'DUET',
     'Duet Governance Token',
     'https://duet.finance',
+  ),
+  lumi: new Token(
+    MAINNET,
+    '0x95013Dcb6A561e6C003AED9C43Fb8B64008aA361',
+    18,
+    'LUMI',
+    'Lumi Token',
+    '',
   )
   
 } as const)
@@ -2052,7 +2060,16 @@ export const testnetTokens = defineTokens({
     'SYRUP',
     'SyrupBar Token',
     'https://pancakeswap.finance/',
+  ),
+  lumi: new Token(
+    TESTNET,
+    '0xCA1dD1342aA4a8B4542De0e06f03032222032619',
+    18,
+    'LUMI',
+    'Lumi Token',
+    'https://pancakeswap.finance/',
   )
+  
 } as const)
 
 const tokens = () => {
