@@ -44,10 +44,10 @@ const HomeHeader = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px" textAlign="center">
-            {t('GameFi-Focused Defi on Bitkub Chain')}
+            {t('Trade your GameFi tokens')}
           </Heading>
           <Heading scale="lg" mb="24px" textAlign="center" >
-            {t('Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa optio et laudantium ipsum ipsam nesciunt, odio hic quibusdam molestias magnam.')}
+            {t('Buy your way into GameFi on Bitkub Chain')}
           </Heading>
         </Flex>
       </Flex>
