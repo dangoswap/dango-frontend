@@ -1,8 +1,8 @@
 {
   "short_name": "DangoSwap",
   "name": "DangoSwap",
-  "description": "Farm CAKE with Pancake LP Tokens",
-  "homepage_url": "https://pancakeswap.finance",
+  "description": "Trade your GameFi Tokens",
+  "homepage_url": "https://dangoswap.finance",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#1FC7D4",
