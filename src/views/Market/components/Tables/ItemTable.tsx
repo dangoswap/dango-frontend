@@ -79,9 +79,17 @@ const DataRow: React.FC<{ item: MarketItem }> = ({ item }) => {
           <Text ml="10px">{item.name}</Text>
         </Flex>
 
+        {/* <Flex> */}
         <LinkExternal href={bkc} fontSize="12px" bold={false} mt="10px">
-          View Token Contract
+          Token Contract
         </LinkExternal>
+
+        <LinkExternal href={bkc} fontSize="12px" bold={false} mt="10px">
+          Vendor Contract
+        </LinkExternal>
+        {/* </Flex> */}
+
+        
       </Box>
 
       <Text textAlign="center"> {item.price}</Text>
