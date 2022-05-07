@@ -38,7 +38,7 @@ const MenuItem: React.FC<FooterProps> = ({
           {/* <LogoWithTextIcon isDark width="130px" /> */}
           <Flex>
               <DangoIcon />
-              <Text bold fontSize="18px" verticalAlign="center" color="#FFFFFF">
+              <Text bold fontWeight={700} fontSize="18px" verticalAlign="center" color="#FFFFFF">
                 DangoSwap
               </Text>
             </Flex>
@@ -76,7 +76,7 @@ const MenuItem: React.FC<FooterProps> = ({
             {/* <LogoWithTextIcon isDark width="160px" /> */}
             <Flex>
               <DangoIcon />
-              <Text bold fontSize="22px" verticalAlign="center" color="#FFFFFF">
+              <Text bold fontWeight={700} fontSize="22px" verticalAlign="center" color="#FFFFFF">
                 DangoSwap
               </Text>
             </Flex>

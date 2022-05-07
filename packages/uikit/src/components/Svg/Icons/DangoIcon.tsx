@@ -10,15 +10,15 @@ const Icon: React.FC<SvgProps> = (props) => {
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      width="40px"
+      width="44px"
       height="29px"
-      viewBox="0 0 40 29"
-      enable-background="new 0 0 40 29"
+      viewBox="0 0 44 29"
+      enable-background="new 0 0 44 29"
     >
       {" "}
       <image
         id="image0"
-        width="40px"
+        width="44px"
       height="29px"
         x="0"
         y="0"
