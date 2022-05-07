@@ -69,7 +69,8 @@ const TableLoader: React.FC = () => {
 
 const DataRow: React.FC<{ item: MarketItem }> = ({ item }) => {
   const { isXs, isSm } = useMatchBreakpoints()
-  const bkc = getBkcScanLink(getAddress(item.contractAddress), 'address')
+  const contractLink = getBkcScanLink(getAddress(item.contractAddress), 'address')
+  const tokenLink = getBkcScanLink(getAddress(item.tokenIn), 'address')
   const totalLumiBalance = new BigNumber(item.totalLumiBalance)
   return (
     <ResponsiveGrid>
@@ -80,11 +81,11 @@ const DataRow: React.FC<{ item: MarketItem }> = ({ item }) => {
         </Flex>
 
         {/* <Flex> */}
-        <LinkExternal href={bkc} fontSize="12px" bold={false} mt="10px">
+        <LinkExternal href={tokenLink} fontSize="12px" bold={false} mt="10px">
           Token Contract
         </LinkExternal>
 
-        <LinkExternal href={bkc} fontSize="12px" bold={false} mt="10px">
+        <LinkExternal href={contractLink} fontSize="12px" bold={false} mt="10px">
           Vendor Contract
         </LinkExternal>
         {/* </Flex> */}

@@ -5,7 +5,7 @@ const marketItems: MarketItem[] = [
         itemId: 0,
         name: 'Tomato',
         contractAddress: {
-            96: '0xed1ABbAb02049c4B14336dbf0c3080D626DdaAFB',
+            96: '0xADcD1a5Fec030b1fBDC1AB98a9747Ce530E3d83b',
             25925: '0x5C615c47edd415D6d71800D94d3d3F370B2F304c',
         },
         tokenIn: { // Tomato
@@ -20,7 +20,7 @@ const marketItems: MarketItem[] = [
         itemId: 1,
         name: 'Cabbage',
         contractAddress: {
-            96: '0xEe250149E959341E2fF56E0B926557F270e9Ca9a',
+            96: '0x5C615c47edd415D6d71800D94d3d3F370B2F304c',
             25925: '0x5C615c47edd415D6d71800D94d3d3F370B2F304c',
         },
         tokenIn: { // Cabbage
@@ -35,7 +35,7 @@ const marketItems: MarketItem[] = [
         itemId: 2,
         name: 'Corn',
         contractAddress: {
-            96: '0x3B5dde11d60617c96EA20a61dbaf790D6477F618',
+            96: '0xCcCb279e3b9f292157B8DF412246bEB4Ec683c01',
             25925: '0x5C615c47edd415D6d71800D94d3d3F370B2F304c',
         },
         tokenIn: { // Corn

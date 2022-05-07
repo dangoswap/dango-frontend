@@ -12,7 +12,7 @@ import {
 } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { useWeb3React } from '@web3-react/core'
-import { getFullDisplayBalance, getDecimalAmount } from 'utils/formatBalance'
+import { getFullDisplayBalance, getDecimalAmount, getBalanceNumber } from 'utils/formatBalance'
 import useTheme from 'hooks/useTheme'
 import useTokenBalance, { FetchStatus } from 'hooks/useTokenBalance'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
@@ -65,6 +65,8 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
   const { theme } = useTheme()
   const [itemsToSell, setItemsToSell] = useState('')
   const [totalCost, setTotalCost] = useState('')
+  const [maxItemSellExceeded, setMaxItemSellExceeded] = useState(false)
+  const [userNotEnoughItem, setUserNotEnoughItem] = useState(false)
   const tokenVendorContract = useTokenVendor(item.itemId)
   
   const tokenInContract = useERC20(getAddress(item.tokenIn))
@@ -72,8 +74,45 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
   const { toastSuccess } = useToast()
   const { balance: tokenInBalance, fetchStatus } = useTokenBalance(getAddress(item.tokenIn))
 
-  // const cakePriceBusd = usePriceCakeBusd()
+  
   const tokenInDisplayBalance = getFullDisplayBalance(tokenInBalance, 18, 3)
+
+  const totalLumiBalance = new BigNumber(item.totalLumiBalance)
+  const itemPrice = new BigNumber(item.price)
+  
+  const maxNumberItemsPerSell = new BigNumber(getBalanceNumber(totalLumiBalance) / itemPrice.toNumber())
+
+  const limitNumberByMaxItemsPerSell = useCallback(
+    (number: BigNumber) => {
+      return number.gt(maxNumberItemsPerSell) ? maxNumberItemsPerSell : number
+    },
+    [maxNumberItemsPerSell],
+  )
+
+  const getItemCost = useCallback(
+    (numberItems: BigNumber) => {
+      const totalAfterDiscount = itemPrice.times(numberItems)
+      return totalAfterDiscount
+    },
+    [itemPrice],
+  )
+
+  const validateInput = useCallback(
+    (inputNumber: BigNumber) => {
+      const limitedNumberItems = limitNumberByMaxItemsPerSell(inputNumber)
+      const lumiCost = getItemCost(limitedNumberItems)
+
+      if (lumiCost.gt(tokenInBalance)) {
+        setUserNotEnoughItem(true)
+      } else if (limitedNumberItems.eq(maxNumberItemsPerSell)) {
+        setMaxItemSellExceeded(true)
+      } else {
+        setUserNotEnoughItem(false)
+        setMaxItemSellExceeded(false)
+      }
+    },
+    [limitNumberByMaxItemsPerSell, getItemCost, maxNumberItemsPerSell, tokenInBalance],
+  )
 
   useEffect(() => {
     const numberOfItemsToSell= new BigNumber(itemsToSell)
@@ -84,7 +123,11 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
   const handleInputChange = (input: string) => {
     // Force input to integer
     const inputAsInt = parseInt(input, 10)
-    setItemsToSell(inputAsInt ? inputAsInt.toString() : '')
+    const inputAsBN = new BigNumber(inputAsInt)
+    const limitedNumberTickets = limitNumberByMaxItemsPerSell(inputAsBN)
+    validateInput(inputAsBN)
+    
+    setItemsToSell(inputAsInt ? limitedNumberTickets.toString() : '')
   }
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
   useApproveConfirmTransaction({
@@ -109,7 +152,19 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
     },
   })
 
-  const disableBuying = false
+  const getErrorMessage = () => {
+    if (userNotEnoughItem) return t('Insufficient %item% balance', { item: item.name })
+    return t('The maximum number of %item% you can sell in one transaction is %maxItems%', {
+      item: item.name, maxItems: maxNumberItemsPerSell.toString(),
+    })
+  }
+
+  const disableSelling =
+    !isApproved ||
+    isConfirmed ||
+    userNotEnoughItem ||
+    !itemsToSell ||
+    new BigNumber(itemsToSell).lte(0)
 
   return (
     <StyledModal title={t('Sell ')+item.name} onDismiss={onDismiss} headerBackground={theme.colors.gradients.cardHeader}>
@@ -133,6 +188,11 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
       />
       <Flex alignItems="center" justifyContent="flex-end" mt="4px" mb="12px">
         <Flex justifyContent="flex-end" flexDirection="column">
+        {account && (userNotEnoughItem|| maxItemSellExceeded) && (
+            <Text fontSize="12px" color="failure">
+              {getErrorMessage()}
+            </Text>
+          )}
           {account && (
             <Flex justifyContent="flex-end">
               <Text fontSize="12px" color="textSubtle" mr="4px">
@@ -169,7 +229,7 @@ const SellItemsModal: React.FC<SellItemsModalProps> = ({ item, onDismiss}) => {
             <ApproveConfirmButtons
               isApproveDisabled={isApproved}
               isApproving={isApproving}
-              isConfirmDisabled={disableBuying}
+              isConfirmDisabled={disableSelling}
               isConfirming={isConfirming}
               onApprove={handleApprove}
               onConfirm={handleConfirm}
